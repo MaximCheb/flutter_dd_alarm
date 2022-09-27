@@ -1,0 +1,13 @@
+[
+    {
+        "name":"toster",
+        "time":"07:10:00",
+        "days":[
+            "monday",
+            "tuesday",
+            "wednesday"
+        ],
+        "repeat":"00:10:00",
+        "music":"classic"
+    }
+]

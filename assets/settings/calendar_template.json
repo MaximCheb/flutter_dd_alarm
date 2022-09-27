@@ -1,0 +1,20 @@
+[
+    {
+        "period":"2020-10-20_2020-12-30",
+        "name":"study",
+        "time":
+        [
+            {
+                "day":"monday",
+                "start":"20:20:20"
+            },
+            {
+                "day":"sunday",
+                "start":"20:20:20"
+            }        
+        ],
+        "repeat":"3",
+        "interval":"01:00:00",
+        "music":"classic"
+    }
+]
