@@ -1,16 +1,13 @@
-# flutter_dd_alarm
+A small flutter pet project for creating several types of alarm clocks
 
-A new Flutter project.
+# Classic alarm clock
 
-## Getting Started
+A regular alarm clock that repeats every day, or every few days, depending on the selected day of the week.
 
-This project is a starting point for a Flutter application.
+# Scheduled calendar alarm clock
 
-A few resources to get you started if this is your first Flutter project:
+It will be possible to set the start and end date of the schedule, repeat once a week, several weeks or days, with a table of alarms.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+# GPS alarm clock
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+It alarms when you hit the set area, it is useful when you regularly fall asleep on public transport.
