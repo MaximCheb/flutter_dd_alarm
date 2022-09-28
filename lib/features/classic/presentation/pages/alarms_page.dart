@@ -2,14 +2,14 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class AlarmPage extends StatefulWidget {
-  const AlarmPage({Key? key}) : super(key: key);
+class AlarmsPage extends StatefulWidget {
+  const AlarmsPage({Key? key}) : super(key: key);
 
   @override
-  State<AlarmPage> createState() => _AlarmPageState();
+  State<AlarmsPage> createState() => _AlarmPageState();
 }
 
-class _AlarmPageState extends State<AlarmPage>
+class _AlarmPageState extends State<AlarmsPage>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
   int _selectedIndex = 0;
@@ -92,8 +92,8 @@ class _AlarmPageState extends State<AlarmPage>
         onPressed: () {
           _addAlarm( _selectedIndex);
         },
-        backgroundColor: Colors.indigo,
-        hoverColor: Colors.blueAccent,
+        backgroundColor: Theme.of(context).colorScheme.background,
+        hoverColor: Theme.of(context).hoverColor,
         child: Icon(Icons.add),
       ),
     );
