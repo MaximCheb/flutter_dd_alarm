@@ -3,5 +3,19 @@
   "tab_geo": "Map alarm",
   "tab_alarms": "Classic Alarms",
   "tab_calendar": "Calendar alarm",
-  "range_since": "Choose range"
+  "range_since": "Choose range",
+  "day_1":"monday",
+  "day_short_1":"mo",
+  "day_2":"tuesday",
+  "day_short_2":"tu",
+  "day_3":"wednesday",
+  "day_short_3":"we",
+  "day_4":"thursday",
+  "day_short_4":"th",
+  "day_5":"friday",
+  "day_short_5":"fr",
+  "day_6":"saturday",
+  "day_short_6":"sa",
+  "day_7":"sunday",
+  "day_short_7":"su"
 }
