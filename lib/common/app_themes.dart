@@ -16,7 +16,22 @@ class AppTheme{
             background: Color.fromARGB(255, 119, 119, 119)
           )
       );
+      // from https://www.color-hex.com/color-palette/1407
   static ThemeData blueGreyTheme()=>
+      ThemeData(
+          primaryColor: const Color(0x536878),
+          colorScheme: const ColorScheme.dark(
+              background: const Color.fromARGB(255, 119, 119, 119),
+              primary: const Color(0x536878),
+              secondary: const Color(0x536878),
+              error: const Color(0x536878),
+              onSurface: const Color(0x536878),
+              brightness: Brightness.dark
+
+          )
+      );
+      // from https://www.color-hex.com/color-palette/2738
+      static ThemeData lightBlueTheme()=>
       ThemeData(
           primaryColor: const Color(0x536878),
           colorScheme: const ColorScheme.dark(
