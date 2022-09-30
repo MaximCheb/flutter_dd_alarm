@@ -3,5 +3,19 @@
   "tab_geo": "Гео будильник",
   "tab_alarms": "Обычный будильник",
   "tab_calendar": "Каледарный будильник",
-  "range_since": "Choose range"
+  "range_since": "Choose range",
+  "day_1":"понедельник",
+  "day_short_1":"пн",
+  "day_2":"вторник",
+  "day_short_2":"вт",
+  "day_3":"среда",
+  "day_short_3":"ср",
+  "day_4":"четверг",
+  "day_short_4":"чт",
+  "day_5":"пятница",
+  "day_short_5":"пт",
+  "day_6":"суббота",
+  "day_short_6":"сб",
+  "day_7":"воскресенье",
+  "day_short_7":"вс"
 }
