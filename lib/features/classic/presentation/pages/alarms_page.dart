@@ -52,8 +52,8 @@ class _AlarmPageState extends State<AlarmsPage>
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.title_app, style: TextStyle(color: Colors.black54)),
-        backgroundColor: Colors.transparent,
+        title: Text(AppLocalizations.of(context)!.title_app, style: TextStyle(color: Theme.of(context).colorScheme.onSurface)),
+        backgroundColor: Theme.of(context).colorScheme.surface,
         elevation: 0,
         actions: [
           IconButton(onPressed: (){
@@ -63,38 +63,45 @@ class _AlarmPageState extends State<AlarmsPage>
               );
             });
           }, 
-          icon: Icon(Icons.menu),color: Colors.white24,)
+          icon: Icon(Icons.menu),color: Theme.of(context).colorScheme.onBackground,)
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Theme.of(context).colorScheme.surface,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.alarm),
             label: AppLocalizations.of(context)!.tab_alarms,
-            backgroundColor: Colors.blueAccent,
+            backgroundColor: Theme.of(context).colorScheme.onSurface,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.calendar_month),
             label: AppLocalizations.of(context)!.tab_calendar,
-            backgroundColor: Colors.blueGrey,
+            backgroundColor: Theme.of(context).colorScheme.onSurface,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.place),
             label: AppLocalizations.of(context)!.tab_geo,
-            backgroundColor: Colors.greenAccent[400],
+            backgroundColor: Theme.of(context).colorScheme.onSurface,
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.grey[800],
+        showUnselectedLabels: false,
+        selectedItemColor: Theme.of(context).colorScheme.onBackground,
         onTap: _onItemTapped,
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          _addAlarm( _selectedIndex);
-        },
-        backgroundColor: Theme.of(context).colorScheme.background,
-        hoverColor: Theme.of(context).hoverColor,
-        child: Icon(Icons.add),
+      floatingActionButton: Container(
+        width: 64,
+        height: 64,
+        child: FloatingActionButton(
+          
+          onPressed: () {
+            _addAlarm( _selectedIndex);
+          },
+          backgroundColor: Theme.of(context).primaryColor,
+          hoverColor: Theme.of(context).hoverColor,
+          child: Icon(Icons.add, color: Theme.of(context).colorScheme.onBackground,size: 32,),
+        ),
       ),
     );
   }

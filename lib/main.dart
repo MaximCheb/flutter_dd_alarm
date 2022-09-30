@@ -50,7 +50,11 @@ class MyApp extends StatelessWidget {
         return AppTheme.classicTheme();
         break;
       case("dark"):
-        return AppTheme.classicTheme();
+        return AppTheme.darkTheme();
+      case("grey"):
+        return AppTheme.blueGrey();
+      case("blue"):
+        return AppTheme.lightBlueTheme();
       default:
         return AppTheme.classicTheme();
 
