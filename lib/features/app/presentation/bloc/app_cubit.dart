@@ -1,37 +1,44 @@
 
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_geo_alarm/core/error/failture.dart';
+import 'package:flutter_geo_alarm/core/usecase/usecase.dart';
+import 'package:flutter_geo_alarm/features/app/data/models/settings_model.dart';
+
+import '../../domain/usecases/settings_usecase.dart';
+import 'app_state.dart';
 
 
 
-class CheckAppCubit extends Cubit<CheckAppState> {
-  final GetAuthUserCase authUser;
-  final SignupUserCase signUpUser;
+class AppCubit extends Cubit<AppState> {
+  final GetSettingsCase settingsCase;
+  // final GetAlarmsCase alarms;
 
-  CheckCubit(CheckState initialState, this.authUser, this.signUpUser)
-      : super(initialState);
+  AppCubit({required this.settingsCase}
+  )
+      : super(EmptySettingsState());
 
-  void signinUser(){
-    if ( state is CheckLocalState) {
-      return;
-    }
-    if ( state is EmptySettingsState) {
-      emit(CheckSharedState());
-      return;
-    }
-    final currentState = state;
+  Future<void> checkSettings() async {
+    SettingsModel settings;
     if ( state is LoadedSettingsState) {
       return;
     }
+    if ( state is EmptySettingsState) {
+      emit(LoadingSettingsState());
+      var failOrSettings = await settingsCase.call(VoidParam());
+      failOrSettings.fold(
+              (error) => emit (ErrorSettingsState(message: _mapFailureToMessage(error))),
+              (result) => emit(LoadedSettingsState(result))
+      );  
+      return;
+    }  
 
   }
-  void signupUser(){
-
-  }
+  
   _mapFailureToMessage(Failure failure) {
     switch (failure.runtimeType) {
-      case ServerFailure:
+      case FirebaseFailure:
         return 'Server failure';
-      case CacheFailure:
+      case FileFailure:
         return 'Cache failure';
       default:
         return "Unexpected failure";
