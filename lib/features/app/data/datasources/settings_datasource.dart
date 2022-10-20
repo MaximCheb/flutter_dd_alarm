@@ -14,14 +14,19 @@ class SettingsDataSourcesImpl implements SettingsDataSources{
 
   @override
   Future<SettingsModel> getSettings() async{
-    File settingsFile = await _localSettingsFile;
+    final docFolder = await getApplicationDocumentsDirectory();
+    await Directory("${docFolder.path}/.flutter_geo_alarm").create();
+    File settingsFile  = File("${docFolder.path}/.flutter_geo_alarm/settings.json");
+    try{
     var jsonSettings = await settingsFile.readAsString();
     if(jsonSettings.isNotEmpty){
       return Future.value(SettingsModel.fromJson(json.decode(jsonSettings)));
     }
-    else{
-      throw FileSystemException;
+    } on FileSystemException {
+      var model = SettingsModel(lang: Platform.localeName.substring(0,2),font: "default", theme: 'classic');
+    } catch (e) {
     }
+    return SettingsModel(lang: Platform.localeName.substring(0,2),font: "default", theme: 'classic');
   }
 
   @override

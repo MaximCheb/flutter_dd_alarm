@@ -2,6 +2,7 @@ import 'package:flutter_geo_alarm/features/app/data/datasources/settings_datasou
 import 'package:flutter_geo_alarm/features/app/data/repositories/settings_repository.dart';
 import 'package:flutter_geo_alarm/features/app/domain/repositories/settings_repository.dart';
 import 'package:flutter_geo_alarm/features/app/domain/usecases/settings_usecase.dart';
+import 'package:flutter_geo_alarm/features/app/presentation/bloc/app_cubit.dart';
 import 'package:flutter_geo_alarm/features/classic/data/datasources/alarm_local_datasource.dart';
 import 'package:flutter_geo_alarm/features/classic/data/repositories/alarm_repository_impl.dart';
 import 'package:flutter_geo_alarm/features/classic/presentation/bloc/alarm_cubit.dart';
@@ -23,6 +24,7 @@ Future<void> init() async{
   // getIt.registerLazySingleton(() => InternetConnectionChecker());
 
   getIt.registerFactory(() => CheckAppCubit( getIt()));
+  getIt.registerFactory(() => AppCubit(settingsCase: getIt()));
   getIt.registerFactory(() => AlarmCubit(getIt(), getIt()));
   //Datasource
   getIt.registerLazySingleton<AlarmDatasource>(()=>AlarmDatasourceImpl());
