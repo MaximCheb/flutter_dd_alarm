@@ -1,13 +1,13 @@
 import 'package:equatable/equatable.dart';
 
-class MapAlarmEntity extends Equatable {
+class GeoAlarmEntity extends Equatable {
   final String name;
   final int radius;
   final double cordX;
   final double cordY;
   final String music;
 
-  const MapAlarmEntity(
+  const GeoAlarmEntity(
       {required this.name,
       required this.radius,
       required this.cordX,
