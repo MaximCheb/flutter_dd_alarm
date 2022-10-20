@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_geo_alarm/features/classic/presentation/widgets/alarms_list.dart';
 
 class AlarmsPage extends StatefulWidget {
   const AlarmsPage({Key? key}) : super(key: key);
@@ -15,11 +16,8 @@ class _AlarmPageState extends State<AlarmsPage>
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Index 0: Home',
-      style: optionStyle,
-    ),
+  static List<Widget> _widgetOptions = <Widget>[
+    AlarmsList(),
     Text(
       'Index 1: Business',
       style: optionStyle,
@@ -47,6 +45,7 @@ class _AlarmPageState extends State<AlarmsPage>
 
   @override
   Widget build(BuildContext context) {
+  
     return Scaffold(
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),

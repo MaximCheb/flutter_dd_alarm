@@ -1,16 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_geo_alarm/features/classic/domain/entities/alarm_entity.dart';
 
 class AlarmExpandedTile extends StatefulWidget {
-  const AlarmExpandedTile({Key? key}) : super(key: key);
+  final AlarmEntity entity;
+  const AlarmExpandedTile({Key? key, required this.entity}) : super(key: key);
 
   @override
-  State<AlarmExpandedTile> createState() => _AlarmExpandedTileState();
+  State<AlarmExpandedTile> createState() => _AlarmExpandedTileState(entity);
 }
 
 class _AlarmExpandedTileState extends State<AlarmExpandedTile> {
+  final AlarmEntity alarmEntity;
   late bool isShort;
+
+  _AlarmExpandedTileState(this.alarmEntity);
   @override
   void initState() {
     isShort = true;
@@ -29,9 +34,9 @@ class _AlarmExpandedTileState extends State<AlarmExpandedTile> {
         children: [
           Column(
             children: [
-              Text("Name"),
-              Text("06:30"),
-              Text("monday")
+              Text("alarmEntity.name"),
+              Text("alarmEntity.time"),
+              Text("alarmEntity.days.toString()")
             ],
           ),          
           SizedBox(width: 64),
