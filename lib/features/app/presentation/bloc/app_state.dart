@@ -1,53 +1,38 @@
-import 'package:des_doc_app/features/app/data/models/login_user.dart';
-import 'package:des_doc_app/features/app/domain/entities/settings_entity.dart';
+
 import 'package:equatable/equatable.dart';
+import 'package:flutter_geo_alarm/features/app/data/models/settings_model.dart';
+import 'package:flutter_geo_alarm/features/app/domain/entities/settings_entity.dart';
 
-import '../../domain/entities/user_entity.dart';
 
-abstract class CheckAppState extends Equatable{
-  const  CheckAppState();
+abstract class AppState extends Equatable{
+  const  AppState();
   @override
   List<Object?> get props => [];
 }
-class EmptySettingsState extends CheckAppState{
+class EmptySettingsState extends AppState{
   @override
   List<Object?> get props => [];
 }
-class CheckLocalState extends CheckAppState{
-  final SettingsEntity settings;
+class LoadingSettingsState extends AppState {
 
-  const CheckLocalState(this.settings);
-  @override
-  List<Object?> get props => [];
-}
-class CheckSharedState extends CheckAppState{
-
-  const CheckSharedState();
-  @override
-  List<Object?> get props => [];
-}
-class LoadingState extends CheckApp State {
-  final LoginUser loginUser;
-  final bool isEmptyUserData;
-
-  LoadingState ( this.loginUser, {this.isEmptyUserData = false});
+  LoadingSettingsState();
     
   @override
-  List<Object?> get props => [loginUser];
+  List<Object?> get props => [];
 }
 
-class LoadedSettingsState extends CheckState {
-  final LoginUser user;
+class LoadedSettingsState extends AppState {
+  final SettingsModel settings;
 
-  const LoadedSettingsState(this.user);
+  const LoadedSettingsState(this.settings);
 
   @override
-  List<Object?> get props => [user];
+  List<Object?> get props => [settings];
 }
 
-class ErrorAuthState extends CheckState {
+class ErrorSettingsState extends AppState {
   final String message;
-  const ErrorAuthState({required this.message});
+  const ErrorSettingsState({required this.message});
   
   @override
   List<Object?> get props => [message];
