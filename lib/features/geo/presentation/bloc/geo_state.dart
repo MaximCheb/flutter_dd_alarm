@@ -2,6 +2,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_geo_alarm/features/app/data/models/settings_model.dart';
 import 'package:flutter_geo_alarm/features/app/domain/entities/settings_entity.dart';
+import 'package:flutter_geo_alarm/features/calendar/data/models/calendar_alarm_model.dart';
 import 'package:flutter_geo_alarm/features/geo/domain/entities/geo_alarm_entity.dart';
 
 
@@ -22,22 +23,21 @@ class CheckSharedGeoAlarmState extends GeoAlarmState{
   List<Object?> get props => [];
 }
 class LoadingState extends GeoAlarmState {
-  final List<GeoAlarmEntity> settings;
-  final bool isEmptyUserData;
+  final List<GeoAlarmEntity>? settings;
 
-  LoadingState ( this.settings, {this.isEmptyUserData = false});
+  LoadingState ( {this.settings});
     
   @override
   List<Object?> get props => [settings];
 }
 
-class LoadedSettingsState extends GeoAlarmState {
-  final SettingsModel user;
+class LoadedCalendarState extends GeoAlarmState {
+  final List<CalendarAlarmModel> alarms;
 
-  const LoadedSettingsState(this.user);
+  const LoadedCalendarState(this.alarms);
 
   @override
-  List<Object?> get props => [user];
+  List<Object?> get props => [alarms];
 }
 
 class ErrorState extends GeoAlarmState  {

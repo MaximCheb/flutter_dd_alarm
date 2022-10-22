@@ -15,22 +15,8 @@ class CheckAppCubit extends Cubit<GeoAlarmState > {
   )
       : super(initialState);
 
-  void signinUser(){
-    if ( state is GeoAlarmState ) {
-      return;
-    }
-    if ( state is EmptySettingsState) {
-      emit(CheckSharedGeoAlarmState ());
-      return;
-    }
-    final currentState = state;
-    if ( state is LoadedSettingsState) {
-      return;
-    }
-
-  }
-  void signupUser(){
-
+  void loagings(){
+    
   }
   _mapFailureToMessage(Failure failure) {
     switch (failure.runtimeType) {
